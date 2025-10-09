@@ -7,15 +7,9 @@
   <style>
     /* ======== Animaciones ======== */
     @keyframes horizontal {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     /* ======== Variables CSS ======== */
@@ -39,7 +33,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      transition: 0.7s ease;
+      transition: 0.5s ease;
     }
 
     html, body {
@@ -82,34 +76,47 @@
       margin-bottom: 1rem;
     }
 
-    .home p {
-      max-width: 700px;
-      margin: auto;
-      font-size: 1.2rem;
-      color: var(--secondary);
-    }
+    .home p { max-width: 700px; margin: auto; font-size: 1.2rem; color: var(--secondary); }
 
     /* ======== Sobre mí ======== */
     .about {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      text-align: center;
       margin: 2rem auto;
     }
 
-    .about__avatar {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      margin-bottom: 2rem;
-      box-shadow: var(--box-shadow);
+    .about p { max-width: 700px; margin: auto; font-size: 1.2rem; line-height: 1.8; }
+
+    /* ======== Experiencia ======== */
+    .experiencia {
+      margin: 3rem auto;
     }
 
-    .about__text {
-      text-align: center;
-      max-width: 700px;
-      font-size: 1.2rem;
-      line-height: 1.8;
+    .experiencia__item {
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .experiencia__logo {
+      width: 70px;
+      margin-right: 1.5rem;
+    }
+
+    .experiencia__content h3 {
+      font-size: 1.4rem; 
+      color: var(--accent); 
+      margin-bottom: 0.3rem;
+    }
+
+    .experiencia__content h4 { 
+      color: var(--secondary); 
+      margin-bottom: 0.5rem;
+    }
+
+    .experiencia__content time, 
+    .experiencia__content p { 
+      font-size: 1rem; 
+      line-height: 1.6; 
     }
 
     /* ======== Proyectos ======== */
@@ -130,34 +137,30 @@
 
     .proyecto:hover {
       transform: translateY(-5px);
-      box-shadow: 
-        0 4px 12px rgba(var(--gray-light), 50%);
+      box-shadow: 0 4px 12px rgba(var(--gray-light), 50%);
     }
 
     .proyecto h3 {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       color: var(--accent);
     }
 
-    /* ======== Footer ======== */
+    /* ======== Contacto ======== */
+    .contacto {
+      text-align: center;
+      margin: 4rem auto 2rem;
+    }
+
     footer {
       text-align: center;
       margin-top: 3rem;
       padding: 2rem;
       background: var(--primary);
       color: var(--secondary);
-      font-size: 0.9rem;
     }
 
-    /* ======== Scrollbar personalizado ======== */
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--secondary-variation);
-      border-radius: 10px;
-    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -165,24 +168,41 @@
   <header>
     <div class="home">
       <h1>Víctor Vega Oteiza</h1>
-      <h2>Desarrollador Backend · RPA Innovator</h2>
+      <h2>Desarrollador Backend</h2>
     </div>
   </header>
 
   <main>
-    <!-- SECCIÓN INICIO -->
-    <section class="home">
-      <h1>Bienvenido</h1>
-      <p>Desarrollador Backend especializado en soluciones escalables, con experiencia en herramientas modernas como AWS, TypeScript, Node.js y más.</p>
-    </section>
-
     <!-- SECCIÓN SOBRE MÍ -->
     <section class="about">
-      <img src="avatar.jpg" alt="Foto de perfil" class="about__avatar">
-      <div class="about__text">
-        <p>
-          Soy un apasionado del desarrollo backend, con experiencia en el diseño de sistemas distribuidos para proyectos de gran escala. Mi enfoque se centra en la creación de soluciones eficientes utilizando metodologías modernas como DDD, TDD y CI/CD.
-        </p>
+      <h2>Sobre mí</h2>
+      <p>Soy un desarrollador backend apasionado, enfocado en crear soluciones robustas, escalables y eficientes utilizando herramientas modernas como Node.js, TypeScript y AWS.</p>
+    </section>
+
+    <!-- SECCIÓN EXPERIENCIA -->
+    <section class="experiencia">
+      <h2>Experiencia</h2>
+
+      <!-- Primer empleo -->
+      <div class="experiencia__item">
+        <img src="optiva-logo.png" alt="Logo de Optiva Media" class="experiencia__logo">
+        <div class="experiencia__content">
+          <h3>Ingeniero de software junior</h3>
+          <h4>Optiva Media - EPAM</h4>
+          <time>May 2024 - Actualidad · Híbrido</time>
+          <p>Backend Developer especializado en sistemas escalables, trabajando en Movistar Plus+ con tecnologías como Node.js, TypeScript y AWS aplicando DDD y TDD.</p>
+        </div>
+      </div>
+
+      <!-- Segundo empleo -->
+      <div class="experiencia__item">
+        <img src="satec-logo.png" alt="Logo de Satec" class="experiencia__logo">
+        <div class="experiencia__content">
+          <h3>Desarrollador RPA</h3>
+          <h4>Satec</h4>
+          <time>Nov 2021 - Jun 2023 · Presencial</time>
+          <p>Automatización de procesos empresariales usando UiPath, mejorando la eficiencia y productividad con soluciones personalizadas.</p>
+        </div>
       </div>
     </section>
 
@@ -192,23 +212,25 @@
       <div class="proyectos-grid">
         <div class="proyecto">
           <h3>API de Gestión</h3>
-          <p>Solución robusta para manejo de tareas con autenticación.</p>
-        </div>
-        <div class="proyecto">
-          <h3>Microservicio de Procesos</h3>
-          <p>Plataforma basada en RabbitMQ y Redis para procesamiento de datos.</p>
+          <p>Una solución robusta para manejar tareas utilizando autenticación JWT.</p>
         </div>
         <div class="proyecto">
           <h3>Dashboard en Tiempo Real</h3>
-          <p>Aplicación visual con WebSockets para monitoreo.</p>
+          <p>Aplicación visual para monitoreo en tiempo real con WebSockets.</p>
         </div>
       </div>
     </section>
+
+    <!-- SECCIÓN CONTACTO -->
+    <section class="contacto">
+      <h2>Contacto</h2>
+      <p>📧 Email: <a href="mailto:victor.vega@example.com">victor.vega@example.com</a></p>
+      <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/victor-vega-oteiza" target="_blank">Victor Vega Oteiza</a></p>
+    </section>
   </main>
 
-  <!-- FOOTER -->
   <footer>
-    © 2025 Víctor Vega Oteiza — Todos los derechos reservados
+    © 2025 Víctor Vega Oteiza - Todos los derechos reservados.
   </footer>
 </body>
 </html>
