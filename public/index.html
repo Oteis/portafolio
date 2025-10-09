@@ -13,7 +13,17 @@
       --accent: #64ffda;
       --gray: #8892b0;
       --dark-gray: #233554;
-      --box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+      --text-color: var(--secondary);
+      --background-color: var(--primary);
+    }
+
+    [data-theme="light"] {
+      --primary: #f5f5f5;
+      --secondary: #333;
+      --light-bg: #eaeaea;
+      --accent: #007acc;
+      --gray: #555;
+      --dark-gray: #d1d1d1;
     }
 
     /* ======== Estilos generales ======== */
@@ -26,8 +36,8 @@
 
     body {
       font-family: 'Arial', sans-serif;
-      background: var(--primary);
-      color: var(--secondary);
+      background: var(--background-color);
+      color: var(--text-color);
       line-height: 1.6;
     }
 
@@ -59,7 +69,25 @@
       background: var(--dark-gray);
       padding: 2rem 1.5rem;
       text-align: center;
-      box-shadow: var(--box-shadow);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .toggle-theme {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--light-bg);
+      color: var(--text-color);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .toggle-theme:hover {
+      background: var(--accent);
+      color: var(--primary);
     }
 
     main {
@@ -81,11 +109,32 @@
       gap: 2rem;
     }
 
+    .photo-container {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .photo-frame {
+      width: 150px;
+      height: 150px;
+      background: var(--light-bg);
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
     .card {
       background: var(--dark-gray);
       padding: 1.5rem;
       border-radius: 8px;
-      box-shadow: var(--box-shadow);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     }
 
     .card img {
@@ -102,6 +151,9 @@
   </style>
 </head>
 <body>
+  <!-- Botón de cambio de tema -->
+  <button class="toggle-theme" id="theme-toggle">Cambiar tema</button>
+
   <!-- HEADER -->
   <header>
     <h1>Víctor Vega Oteiza</h1>
@@ -113,6 +165,12 @@
     <!-- SECCIÓN SOBRE MÍ -->
     <section>
       <h2>Sobre mí</h2>
+      <div class="photo-container">
+        <div class="photo-frame">
+          <!-- Espacio designado para la foto -->
+          <!-- <img src="tu-foto.jpg" alt="Foto de perfil"> -->
+        </div>
+      </div>
       <p>Soy un desarrollador con experiencia en backend y automatización (RPA), apasionado por las soluciones robustas y escalables. Actualmente colaboro en el proyecto Movistar Plus+ como parte de Telefónica, utilizando tecnologías modernas como Node.js, TypeScript y AWS.</p>
       <p>Me enfoco en buenas prácticas como DDD, TDD y CI/CD, buscando optimizar sistemas empresariales y mejorar la productividad.</p>
     </section>
@@ -153,49 +211,13 @@
       </div>
     </section>
 
-    <!-- SECCIÓN FORMACIÓN -->
-    <section>
-      <h2>Formación académica</h2>
-      <ul>
-        <li><strong>Grado en Ingeniería Informática:</strong> Universidad Politécnica de Madrid (2017 - 2023)</li>
-        <li><strong>Bachillerato Internacional:</strong> Colegio Internacional J.H. Newman (2015 - 2017)</li>
-      </ul>
-    </section>
-
-    <!-- SECCIÓN CERTIFICACIONES -->
-    <section>
-      <h2>Certificaciones</h2>
-      <ul>
-        <li><strong>TypeScript avanzado:</strong> LinkedIn (Ene. 2025)</li>
-      </ul>
-    </section>
-
-    <!-- SECCIÓN PROYECTOS -->
-    <section>
-      <h2>Proyectos destacados</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>API de Gestión</h3>
-          <p>Diseño y desarrollo de una API RESTful con autenticación JWT para gestión de tareas.</p>
-        </div>
-        <div class="card">
-          <h3>Dashboard en tiempo real</h3>
-          <p>Plataforma de monitoreo en tiempo real creada con WebSockets.</p>
-        </div>
-        <div class="card">
-          <h3>Microservicio de Procesos</h3>
-          <p>Sistema basado en RabbitMQ y Redis para procesar grandes volúmenes de datos.</p>
-        </div>
-      </div>
-    </section>
-
     <!-- SECCIÓN CONTACTO -->
     <section>
       <h2>Contacto</h2>
       <p>📧 Email: <a href="mailto:victor.vega@example.com">victor.vega@example.com</a></p>
       <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/victor-vega-oteiza" target="_blank">Victor Vega Oteiza</a></p>
       <p>💼 GitHub: <a href="https://github.com/victorvega" target="_blank">github.com/victorvega</a></p>
-      <p>📄 <a href="cv.pdf" download>Descargar CV (PDF)</a></p>
+      <p>📄 CV: <a href="cv_espanol.pdf" download>Descargar en Español</a> | <a href="cv_ingles.pdf" download>Descargar en Inglés</a></p>
     </section>
   </main>
 
@@ -203,5 +225,12 @@
   <footer>
     © 2025 Víctor Vega Oteiza - Todos los derechos reservados.
   </footer>
+
+  <script>
+    const toggleThemeButton = document.getElementById('theme-toggle');
+    toggleThemeButton.addEventListener('click', () => {
+      document.body.dataset.theme = document.body.dataset.theme === 'light' ? 'dark' : 'light';
+    });
+  </script>
 </body>
 </html>
