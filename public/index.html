@@ -16,7 +16,6 @@
       --text-color: var(--secondary);
       --background-color: var(--primary);
     }
-
     [data-theme="light"] {
       --primary: #ffffff;
       --secondary: #333333;
@@ -35,7 +34,6 @@
       box-sizing: border-box;
       scroll-behavior: smooth;
     }
-
     body {
       font-family: 'Arial', sans-serif;
       background: var(--background-color);
@@ -43,38 +41,31 @@
       line-height: 1.6;
       transition: all 0.3s ease;
     }
-
     h1, h2, h3 {
       margin-bottom: 1rem;
     }
-
     h1, h2 {
       color: var(--accent);
       text-align: center;
     }
-
     ul {
       list-style: none;
       margin: 1rem 0;
       padding-left: 0;
     }
-
     a {
       color: var(--accent);
       text-decoration: none;
     }
-
     a:hover {
       text-decoration: underline;
     }
-
     header {
       background: var(--dark-gray);
       padding: 2rem 1.5rem;
       text-align: center;
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     }
-
     .toggle-buttons {
       position: absolute;
       top: 20px;
@@ -82,7 +73,6 @@
       display: flex;
       gap: 1rem;
     }
-
     .toggle-buttons button {
       background: var(--light-bg);
       color: var(--text-color);
@@ -92,59 +82,32 @@
       cursor: pointer;
       transition: background 0.3s;
     }
-
     .toggle-buttons button:hover {
       background: var(--accent);
       color: var(--primary);
     }
-
     main {
       max-width: 1200px;
       margin: auto;
       padding: 2rem 1rem;
     }
-
     section {
       margin-bottom: 4rem;
       padding: 2rem;
       background: var(--light-bg);
       border-radius: 8px;
     }
-
-    .photo-container {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .photo-frame {
-      width: 150px;
-      height: 150px;
-      background: var(--light-bg);
-      border-radius: 50%;
-      display: inline-block;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .photo-frame img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
     }
-
     .card {
       background: var(--dark-gray);
       padding: 1.5rem;
       border-radius: 8px;
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     }
-
     footer {
       text-align: center;
       padding: 2rem;
@@ -170,53 +133,100 @@
 
   <!-- MAIN -->
   <main>
-    <!-- SOBRE MÍ -->
-    <section>
-      <h2 data-en="About Me" data-es="Sobre mí">Sobre mí</h2>
-      <div class="photo-container">
-        <div class="photo-frame">
-          <!-- Espacio para foto -->
+    <!-- EXPERIENCIA LABORAL -->
+    <section id="experience">
+      <h2 data-en="Work Experience" data-es="Experiencia laboral">Experiencia laboral</h2>
+      <div class="grid">
+        <div class="card">
+          <h3 data-en="Junior Software Engineer" data-es="Ingeniero de Software Junior">Ingeniero de Software Junior</h3>
+          <p><strong>Optiva Media - EPAM</strong> (May 2024 - Presente)</p>
+          <ul>
+            <li data-en="Develop robust and scalable backend systems with TypeScript and Node.js." data-es="Desarrollar sistemas backend robustos y escalables con TypeScript y Node.js.">
+              Desarrollar sistemas backend robustos y escalables con TypeScript y Node.js.
+            </li>
+            <li data-en="Implement automated testing (TDD) to maintain high code quality." data-es="Implementar pruebas automáticas (TDD) para mantener altos estándares de calidad de código.">
+              Implementar pruebas automáticas (TDD) para mantener altos estándares de calidad de código.
+            </li>
+            <li data-en="Manage cloud infrastructure in AWS using CloudFormation." data-es="Gestionar la infraestructura en la nube en AWS utilizando CloudFormation.">
+              Gestionar la infraestructura en la nube en AWS utilizando CloudFormation.
+            </li>
+            <li data-en="Build CI/CD pipelines for streamlined system deployments." data-es="Construir pipelines de CI/CD para despliegues automatizados.">
+              Construir pipelines de CI/CD para despliegues automatizados.
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 data-en="RPA Developer" data-es="Desarrollador RPA">Desarrollador RPA</h3>
+          <p><strong>Satec</strong> (Nov 2021 - Jun 2023)</p>
+          <ul>
+            <li data-en="Automated business processes using UiPath to reduce manual work." data-es="Automatización de procesos de negocio usando UiPath para reducir el trabajo manual.">
+              Automatización de procesos de negocio usando UiPath para reducir el trabajo manual.
+            </li>
+            <li data-en="Improved workflow efficiency and minimized errors in repetitive tasks." data-es="Mejorar la eficiencia del flujo de trabajo y minimizar errores en tareas repetitivas.">
+              Mejorar la eficiencia del flujo de trabajo y minimizar errores en tareas repetitivas.
+            </li>
+          </ul>
         </div>
       </div>
-      <p data-en="I'm a backend developer with experience in automation (RPA) and robust, scalable solutions. Currently, I contribute to Movistar Plus+ using modern technologies like Node.js, TypeScript, and AWS."
-         data-es="Soy un desarrollador con experiencia en backend y automatización (RPA), apasionado por las soluciones robustas y escalables. Actualmente colaboro en Movistar Plus+ utilizando Node.js, TypeScript, y AWS.">
-        Soy un desarrollador con experiencia en backend y automatización (RPA), apasionado por las soluciones robustas y escalables. Actualmente colaboro en Movistar Plus+ utilizando Node.js, TypeScript, y AWS.
-      </p>
     </section>
 
-    <!-- COLOCAR MÁS SECCIONES AQUÍ (EXPERIENCIA, PROYECTOS, CONTACTO, ETC.) -->
-
-    <!-- SECCIÓN CONTACTO -->
-    <section>
-      <h2 data-en="Contact" data-es="Contacto">Contacto</h2>
-      <p>📧 Email: <a href="vitineitor@gmail.com">victor.vega@example.com</a></p>
-      <p>🔗 LinkedIn: <a href=https://www.linkedin.com/in/víctorvegaoteiza/" target="_blank">Victor Vega Oteiza</a></p>
-      <p>💼 GitHub: <a href="https://github.com/Oteis" target="_blank">github.com/victorvega</a></p>
-      <p>📄 CV: <a href="cv_espanol.pdf" download>Español</a> | <a href="cv_ingles.pdf" download>English</a></p>
+    <!-- PROYECTOS PRINCIPALES -->
+    <section id="projects">
+      <h2 data-en="Highlighted Projects" data-es="Proyectos destacados">Proyectos destacados</h2>
+      <div class="grid" id="projects-container">
+        <!-- Proyectos de GitHub se mostrarán aquí dinámicamente -->
+      </div>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     © 2025 Víctor Vega Oteiza - Todos los derechos reservados.
   </footer>
 
   <script>
+    const GITHUB_USERNAME = "Oteis";
+
     // Cambio de tema
-    const toggleThemeButton = document.getElementById('theme-toggle');
-    toggleThemeButton.addEventListener('click', () => {
-      document.body.dataset.theme = document.body.dataset.theme === 'light' ? 'dark' : 'light';
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+        document.body.dataset.theme = document.body.dataset.theme === 'light' ? 'dark' : 'light';
     });
 
     // Cambio de idioma
-    const toggleLanguageButton = document.getElementById('language-toggle');
-    toggleLanguageButton.addEventListener('click', () => {
-      const currentLang = toggleLanguageButton.textContent === 'English' ? 'es' : 'en';
-      toggleLanguageButton.textContent = currentLang === 'en' ? 'Español' : 'English';
-      
-      document.querySelectorAll('[data-en]').forEach(el => {
-        el.textContent = el.getAttribute(`data-${currentLang}`);
-      });
+    const languageToggle = document.getElementById('language-toggle');
+    languageToggle.addEventListener('click', () => {
+        const currentLang = languageToggle.textContent === 'English' ? 'es' : 'en';
+        languageToggle.textContent = currentLang === 'en' ? 'Español' : 'English';
+
+        document.querySelectorAll('[data-en]').forEach(el => {
+            el.textContent = el.getAttribute(`data-${currentLang}`);
+        });
     });
+
+    // Cargar proyectos de GitHub dinámicamente
+    async function fetchGitHubProjects() {
+        const container = document.getElementById('projects-container');
+        try {
+            const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`);
+            const repos = await response.json();
+            repos.forEach(repo => {
+                const projectCard = document.createElement('div');
+                projectCard.classList.add('card');
+                projectCard.innerHTML = `
+                    <h3>${repo.name}</h3>
+                    <p>${repo.description || "No description available."}</p>
+                    <a href="${repo.html_url}" target="_blank">Ver en GitHub</a>
+                `;
+                container.appendChild(projectCard);
+            });
+        } catch (error) {
+            console.error("Error al obtener los proyectos de GitHub:", error);
+            container.innerHTML = "<p>Error al cargar los proyectos.</p>";
+        }
+    }
+    fetchGitHubProjects();
   </script>
 </body>
 </html>
