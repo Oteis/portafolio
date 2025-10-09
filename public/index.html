@@ -5,8 +5,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portafolio | Víctor Vega Oteiza</title>
   <style>
-    /* Añadimos y mantenemos los estilos actuales (idénticos al del archivo preexistente) */
-    /* Por simplicidad, mantendré las nuevas secciones en armonía con el aspecto previo */
+    /* ======== Variables CSS ======== */
+    :root {
+      --primary: #090c1a;
+      --secondary: #c2c6da;
+      --secondary-variation: rgba(194, 198, 218, 0.4);
+      --accent: #2337ff;
+      --gray-light: rgba(229, 233, 240, 0.8);
+      --box-shadow: 0 2px 6px rgba(96, 115, 159, 0.25), 0 8px 24px rgba(96, 115, 159, 0.33);
+    }
+
+    /* ======== Estilos generales ======== */
+    body {
+      font-family: 'Satoshi', sans-serif;
+      background: var(--primary);
+      color: var(--secondary);
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    /* ======== Header ======== */
+    header .home h1 {
+      font-size: 3rem;
+      background: linear-gradient(270deg, #f76927 0%, #fdfa29 100%);
+      background-size: 150%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header .home h2 {
+      color: var(--secondary);
+      font-size: 1.5rem;
+    }
+
+    /* ======== About ======== */
+    .about p {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* ======== Skills ======== */
+    .skills ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      max-width: 700px;
+      text-align: left;
+    }
+
+    .skills li {
+      margin-bottom: 1rem;
+    }
+
+    /* ======== Experiencia ======== */
+    .experiencia {
+      margin: 3rem auto;
+      max-width: 700px;
+    }
+    .experiencia__item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .experiencia__logo {
+      width: 70px;
+      margin-right: 1rem;
+    }
+    .experiencia__content {
+      text-align: left;
+    }
+
+    /* ======== Contacto ======== */
+    .contacto {
+      text-align: center;
+      padding-bottom: 2rem;
+    }
+
+    .contacto a {
+      color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: var(--primary);
+    }
   </style>
 </head>
 <body>
@@ -22,7 +109,10 @@
     <!-- SECCIÓN SOBRE MÍ -->
     <section class="about">
       <h2>Sobre mí</h2>
-      <p>Soy un desarrollador backend apasionado, enfocado en crear soluciones robustas y escalables utilizando herramientas modernas como Node.js, TypeScript y AWS.</p>
+      <p>
+        Soy un desarrollador backend apasionado, enfocado en crear soluciones robustas y escalables
+        utilizando herramientas modernas como Node.js, TypeScript y AWS.
+      </p>
     </section>
 
     <!-- SECCIÓN HABILIDADES TÉCNICAS -->
@@ -40,7 +130,24 @@
     <!-- SECCIÓN EXPERIENCIA -->
     <section class="experiencia">
       <h2>Experiencia</h2>
-      <!-- Detalles de experiencia ya existentes -->
+      <div class="experiencia__item">
+        <img src="optiva-logo.png" alt="Logo de Optiva Media" class="experiencia__logo">
+        <div class="experiencia__content">
+          <h3>Ingeniero de software junior</h3>
+          <h4>Optiva Media - EPAM</h4>
+          <time>May 2024 - Actualidad · Híbrido</time>
+          <p>Backend Developer especializado en sistemas escalables, trabajando en Movistar Plus+ con tecnologías como Node.js, TypeScript y AWS aplicando DDD y TDD.</p>
+        </div>
+      </div>
+      <div class="experiencia__item">
+        <img src="satec-logo.png" alt="Logo de Satec" class="experiencia__logo">
+        <div class="experiencia__content">
+          <h3>Desarrollador RPA</h3>
+          <h4>Satec</h4>
+          <time>Nov 2021 - Jun 2023 · Presencial</time>
+          <p>Automatización de procesos empresariales usando UiPath, mejorando la eficiencia y productividad con soluciones personalizadas.</p>
+        </div>
+      </div>
     </section>
 
     <!-- SECCIÓN FORMACIÓN -->
