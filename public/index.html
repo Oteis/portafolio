@@ -7,176 +7,199 @@
   <style>
     /* ======== Variables CSS ======== */
     :root {
-      --primary: #090c1a;
-      --secondary: #c2c6da;
-      --secondary-variation: rgba(194, 198, 218, 0.4);
-      --accent: #2337ff;
-      --gray-light: rgba(229, 233, 240, 0.8);
-      --box-shadow: 0 2px 6px rgba(96, 115, 159, 0.25), 0 8px 24px rgba(96, 115, 159, 0.33);
+      --primary: #0a192f;
+      --secondary: #ccd6f6;
+      --light-bg: rgba(204, 214, 246, 0.1);
+      --accent: #64ffda;
+      --gray: #8892b0;
+      --dark-gray: #233554;
+      --box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     }
 
     /* ======== Estilos generales ======== */
-    body {
-      font-family: 'Satoshi', sans-serif;
-      background: var(--primary);
-      color: var(--secondary);
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
-    h1, h2 {
-      text-align: center;
-    }
-
-    /* ======== Header ======== */
-    header .home h1 {
-      font-size: 3rem;
-      background: linear-gradient(270deg, #f76927 0%, #fdfa29 100%);
-      background-size: 150%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    header .home h2 {
+    body {
+      font-family: 'Arial', sans-serif;
+      background: var(--primary);
       color: var(--secondary);
-      font-size: 1.5rem;
+      line-height: 1.6;
     }
 
-    /* ======== About ======== */
-    .about p {
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    /* ======== Skills ======== */
-    .skills ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 auto;
-      max-width: 700px;
-      text-align: left;
-    }
-
-    .skills li {
+    h1, h2, h3 {
       margin-bottom: 1rem;
     }
 
-    /* ======== Experiencia ======== */
-    .experiencia {
-      margin: 3rem auto;
-      max-width: 700px;
-    }
-    .experiencia__item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 2rem;
-    }
-    .experiencia__logo {
-      width: 70px;
-      margin-right: 1rem;
-    }
-    .experiencia__content {
-      text-align: left;
-    }
-
-    /* ======== Contacto ======== */
-    .contacto {
-      text-align: center;
-      padding-bottom: 2rem;
-    }
-
-    .contacto a {
+    h1, h2 {
       color: var(--accent);
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      margin: 1rem 0;
+      padding-left: 0;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background: var(--dark-gray);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: var(--box-shadow);
+    }
+
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    section {
+      margin-bottom: 4rem;
+      padding: 2rem;
+      background: var(--light-bg);
+      border-radius: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--dark-gray);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: var(--box-shadow);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
     }
 
     footer {
       text-align: center;
-      padding: 1rem;
-      background-color: var(--primary);
+      padding: 2rem;
+      color: var(--gray);
+      background: var(--dark-gray);
     }
   </style>
 </head>
 <body>
   <!-- HEADER -->
   <header>
-    <div class="home">
-      <h1>Víctor Vega Oteiza</h1>
-      <h2>Desarrollador Backend</h2>
-    </div>
+    <h1>Víctor Vega Oteiza</h1>
+    <h2>Desarrollador Backend Especializado en TypeScript, Node.js y AWS</h2>
   </header>
 
+  <!-- MAIN -->
   <main>
     <!-- SECCIÓN SOBRE MÍ -->
-    <section class="about">
+    <section>
       <h2>Sobre mí</h2>
-      <p>
-        Soy un desarrollador backend apasionado, enfocado en crear soluciones robustas y escalables
-        utilizando herramientas modernas como Node.js, TypeScript y AWS.
-      </p>
+      <p>Soy un desarrollador con experiencia en backend y automatización (RPA), apasionado por las soluciones robustas y escalables. Actualmente colaboro en el proyecto Movistar Plus+ como parte de Telefónica, utilizando tecnologías modernas como Node.js, TypeScript y AWS.</p>
+      <p>Me enfoco en buenas prácticas como DDD, TDD y CI/CD, buscando optimizar sistemas empresariales y mejorar la productividad.</p>
     </section>
 
     <!-- SECCIÓN HABILIDADES TÉCNICAS -->
-    <section class="skills">
+    <section>
       <h2>Habilidades técnicas</h2>
       <ul>
-        <li><strong>Backend:</strong> Node.js, TypeScript, APIs RESTful</li>
-        <li><strong>DevOps:</strong> AWS (EC2, S3, Lambda, Cloudformation)</li>
-        <li><strong>Metodologías:</strong> DDD, TDD, CI/CD</li>
-        <li><strong>Automatización:</strong> RPA con UiPath</li>
-        <li><strong>Versionado:</strong> Git, GitLab CI</li>
+        <li><strong>Backend:</strong> Node.js, TypeScript, APIs RESTful, DDD</li>
+        <li><strong>DevOps:</strong> AWS (EC2, Lambda, CloudFormation), CI/CD</li>
+        <li><strong>Automatización:</strong> RPA (UiPath), Selenium</li>
+        <li><strong>Metodologías:</strong> TDD, Versionado con Git</li>
       </ul>
     </section>
 
     <!-- SECCIÓN EXPERIENCIA -->
-    <section class="experiencia">
-      <h2>Experiencia</h2>
-      <div class="experiencia__item">
-        <img src="optiva-logo.png" alt="Logo de Optiva Media" class="experiencia__logo">
-        <div class="experiencia__content">
-          <h3>Ingeniero de software junior</h3>
-          <h4>Optiva Media - EPAM</h4>
-          <time>May 2024 - Actualidad · Híbrido</time>
-          <p>Backend Developer especializado en sistemas escalables, trabajando en Movistar Plus+ con tecnologías como Node.js, TypeScript y AWS aplicando DDD y TDD.</p>
+    <section>
+      <h2>Experiencia laboral</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Ingeniero de Software Junior</h3>
+          <p><strong>Optiva Media - EPAM</strong> (May 2024 - Presente)</p>
+          <ul>
+            <li>Desarrollo de sistemas backend con TypeScript y Node.js.</li>
+            <li>Pruebas automatizadas (TDD) para asegurar calidad.</li>
+            <li>Gestión de infraestructura en AWS mediante CloudFormation.</li>
+            <li>Implementación de pipelines de CI/CD para despliegues.</li>
+          </ul>
         </div>
-      </div>
-      <div class="experiencia__item">
-        <img src="satec-logo.png" alt="Logo de Satec" class="experiencia__logo">
-        <div class="experiencia__content">
+        <div class="card">
           <h3>Desarrollador RPA</h3>
-          <h4>Satec</h4>
-          <time>Nov 2021 - Jun 2023 · Presencial</time>
-          <p>Automatización de procesos empresariales usando UiPath, mejorando la eficiencia y productividad con soluciones personalizadas.</p>
+          <p><strong>Satec</strong> (Nov 2021 - Jun 2023)</p>
+          <ul>
+            <li>Automatización de procesos empresariales con UiPath.</li>
+            <li>Optimización de flujos de trabajo para mayor productividad.</li>
+          </ul>
         </div>
       </div>
     </section>
 
     <!-- SECCIÓN FORMACIÓN -->
-    <section class="education">
-      <h2>Formación</h2>
+    <section>
+      <h2>Formación académica</h2>
       <ul>
-        <li><strong>Grado:</strong> Ingeniería Informática - Universidad Politécnica de Madrid (2017 - 2023)</li>
-        <li><strong>Bachillerato:</strong> Ciencias - Colegio Internacional J.H. Newman (2015 - 2017)</li>
+        <li><strong>Grado en Ingeniería Informática:</strong> Universidad Politécnica de Madrid (2017 - 2023)</li>
+        <li><strong>Bachillerato Internacional:</strong> Colegio Internacional J.H. Newman (2015 - 2017)</li>
       </ul>
     </section>
 
     <!-- SECCIÓN CERTIFICACIONES -->
-    <section class="certifications">
+    <section>
       <h2>Certificaciones</h2>
       <ul>
         <li><strong>TypeScript avanzado:</strong> LinkedIn (Ene. 2025)</li>
       </ul>
     </section>
 
+    <!-- SECCIÓN PROYECTOS -->
+    <section>
+      <h2>Proyectos destacados</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>API de Gestión</h3>
+          <p>Diseño y desarrollo de una API RESTful con autenticación JWT para gestión de tareas.</p>
+        </div>
+        <div class="card">
+          <h3>Dashboard en tiempo real</h3>
+          <p>Plataforma de monitoreo en tiempo real creada con WebSockets.</p>
+        </div>
+        <div class="card">
+          <h3>Microservicio de Procesos</h3>
+          <p>Sistema basado en RabbitMQ y Redis para procesar grandes volúmenes de datos.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- SECCIÓN CONTACTO -->
-    <section class="contacto">
+    <section>
       <h2>Contacto</h2>
       <p>📧 Email: <a href="mailto:victor.vega@example.com">victor.vega@example.com</a></p>
       <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/victor-vega-oteiza" target="_blank">Victor Vega Oteiza</a></p>
-      <p>💻 GitHub: <a href="https://github.com/victorvega" target="_blank">github.com/victorvega</a></p>
+      <p>💼 GitHub: <a href="https://github.com/victorvega" target="_blank">github.com/victorvega</a></p>
       <p>📄 <a href="cv.pdf" download>Descargar CV (PDF)</a></p>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     © 2025 Víctor Vega Oteiza - Todos los derechos reservados.
   </footer>
