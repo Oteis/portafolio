@@ -1,233 +1,212 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portafolio | Víctor Vega Oteiza</title>
   <style>
-    /* ======== Estilos generales ======== */
-    :root {
-      --color-fondo: #0d1117;
-      --color-principal: #58a6ff;
-      --color-secundario: #161b22;
-      --color-texto: #c9d1d9;
-      --color-acento: #f78166;
-      --color-oscuro: #1f242c;
-      --fuente: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* ======== Animaciones ======== */
+    @keyframes horizontal {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
+    /* ======== Variables CSS ======== */
+    :root {
+      --primary: #090c1a;
+      --secondary: #c2c6da;
+      --secondary-variation: rgba(194, 198, 218, 0.4);
+      --accent: #2337ff;
+      --accent-dark: #000d8a;
+      --gray: 96, 115, 159;
+      --gray-light: 229, 233, 240;
+      --gray-dark: 34, 41, 57;
+      --box-shadow: 
+        0 2px 6px rgba(var(--gray), 25%), 
+        0 8px 24px rgba(var(--gray), 33%), 
+        0 16px 32px rgba(var(--gray), 33%);
+    }
+
+    /* ======== Estilos generales ======== */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      transition: 0.7s ease;
     }
 
-    body {
-      font-family: var(--fuente);
-      background-color: var(--color-fondo);
-      color: var(--color-texto);
-      line-height: 1.6;
+    html, body {
+      font-family: Satoshi, sans-serif;
+      line-height: 1.7;
+      background: var(--primary);
+      color: rgb(var(--gray-dark));
+      font-size: 20px;
+      overflow-x: hidden;
     }
 
-    /* ======== Navbar ======== */
-    header {
-      background-color: var(--color-secundario);
-      padding: 1.5rem 2rem;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.4);
-      z-index: 1000;
-    }
-
-    .header__nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .header__nav a {
-      text-decoration: none;
-      color: var(--color-texto);
-      transition: color 0.3s;
-      font-size: 1rem;
-    }
-
-    .header__nav a:hover {
-      color: var(--color-principal);
-    }
-
-    .logo a {
-      text-decoration: none;
-      color: var(--color-principal);
-      font-size: 1.8rem;
-      font-weight: bold;
-    }
-
-    /* ======== Secciones ======== */
     main {
-      margin-top: 5rem;
+      width: 880px;
+      max-width: calc(100% - 5em);
+      margin: auto;
+      color: var(--secondary);
     }
 
-    section {
-      padding: 6rem 2rem 4rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    section h2 {
-      color: var(--color-principal);
-      margin-bottom: 1rem;
-      border-bottom: 2px solid var(--color-principal);
-      display: inline-block;
-    }
-
-    /* ======== Home Section ======== */
+    /* ======== Home (Inicio) ======== */
     .home {
       text-align: center;
-      padding-top: 4rem;
+      margin: 4rem auto 3rem;
     }
 
     .home h1 {
-      color: var(--color-principal);
-      font-size: 3rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      background: linear-gradient(270deg, #f76927 0%, #fdfa29 100%);
+      background-size: 150%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -moz-background-clip: text;
+      -moz-text-fill-color: transparent;
+      animation: horizontal 4s linear infinite;
+      margin-bottom: 0.5rem;
     }
 
     .home h2 {
-      font-size: 1.4rem;
-      color: var(--color-acento);
+      font-size: 1.5rem;
+      color: var(--secondary);
       margin-bottom: 1rem;
     }
 
     .home p {
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 1.1rem;
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.2rem;
+      color: var(--secondary);
     }
 
-    /* ======== Proyectos Section ======== */
+    /* ======== Sobre mí ======== */
+    .about {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 2rem auto;
+    }
+
+    .about__avatar {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      margin-bottom: 2rem;
+      box-shadow: var(--box-shadow);
+    }
+
+    .about__text {
+      text-align: center;
+      max-width: 700px;
+      font-size: 1.2rem;
+      line-height: 1.8;
+    }
+
+    /* ======== Proyectos ======== */
     .proyectos-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
-      margin-top: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      margin: 2rem auto;
     }
 
     .proyecto {
-      background-color: var(--color-secundario);
-      border-radius: 10px;
       padding: 1.5rem;
-      transition: transform 0.3s, background 0.3s;
+      background: rgba(var(--gray-light), 0.1);
+      border-radius: 10px;
+      box-shadow: var(--box-shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .proyecto:hover {
       transform: translateY(-5px);
-      background-color: var(--color-oscuro);
+      box-shadow: 
+        0 4px 12px rgba(var(--gray-light), 50%);
     }
 
     .proyecto h3 {
-      color: var(--color-acento);
-      margin-bottom: 0.5rem;
-    }
-
-    /* ======== About Section ======== */
-    .about__description img {
-      width: 250px;
-      border-radius: 50%;
-      margin-bottom: 2rem;
-    }
-
-    .about__description {
-      text-align: center;
+      font-size: 1.3rem;
+      color: var(--accent);
     }
 
     /* ======== Footer ======== */
     footer {
       text-align: center;
-      padding: 2rem;
-      background-color: var(--color-secundario);
-      color: var(--color-texto);
-      font-size: 0.9rem;
       margin-top: 3rem;
+      padding: 2rem;
+      background: var(--primary);
+      color: var(--secondary);
+      font-size: 0.9rem;
+    }
+
+    /* ======== Scrollbar personalizado ======== */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--secondary-variation);
+      border-radius: 10px;
     }
   </style>
 </head>
 <body>
   <!-- HEADER -->
   <header>
-    <h1 class="logo"><a href="#">Víctor Vega Oteiza</a></h1>
-    <nav class="header__nav">
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="#cv">CV</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
+    <div class="home">
+      <h1>Víctor Vega Oteiza</h1>
+      <h2>Desarrollador Backend · RPA Innovator</h2>
+    </div>
   </header>
 
   <main>
-    <!-- HOME SECTION -->
-    <section class="home" id="inicio">
-      <h1>👋 Hola, soy Víctor Vega Oteiza</h1>
-      <h2>Desarrollador Backend & Bug Crusher</h2>
-      <p>Especializado en crear soluciones robustas, escalables y optimizadas para el rendimiento utilizando tecnologías modernas.</p>
+    <!-- SECCIÓN INICIO -->
+    <section class="home">
+      <h1>Bienvenido</h1>
+      <p>Desarrollador Backend especializado en soluciones escalables, con experiencia en herramientas modernas como AWS, TypeScript, Node.js y más.</p>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section id="sobre-mi">
-      <h2>Sobre mí</h2>
-      <div class="about__description">
-        <img src="avatar.jpg" alt="Foto de Víctor Vega Oteiza" />
+    <!-- SECCIÓN SOBRE MÍ -->
+    <section class="about">
+      <img src="avatar.jpg" alt="Foto de perfil" class="about__avatar">
+      <div class="about__text">
         <p>
-          Soy un apasionado desarrollador backend con experiencia en <strong>automatización RPA</strong> y <strong>desarrollo de software</strong>.
-          Actualmente colaboro en el proyecto Movistar Plus+ en Telefónica, creando soluciones distribuidas con tecnología moderna como
-          <strong>Node.js</strong>, <strong>TypeScript</strong>, y <strong>AWS</strong>.
+          Soy un apasionado del desarrollo backend, con experiencia en el diseño de sistemas distribuidos para proyectos de gran escala. Mi enfoque se centra en la creación de soluciones eficientes utilizando metodologías modernas como DDD, TDD y CI/CD.
         </p>
       </div>
     </section>
 
-    <!-- PROJECTS SECTION -->
-    <section id="proyectos">
+    <!-- SECCIÓN PROYECTOS -->
+    <section class="proyectos">
       <h2>Proyectos</h2>
       <div class="proyectos-grid">
         <div class="proyecto">
-          <h3>Proyecto 1</h3>
-          <p>API RESTful para gestión de tareas con autenticación JWT.</p>
+          <h3>API de Gestión</h3>
+          <p>Solución robusta para manejo de tareas con autenticación.</p>
         </div>
         <div class="proyecto">
-          <h3>Proyecto 2</h3>
-          <p>Microservicio para procesamiento de datos con RabbitMQ y Redis.</p>
+          <h3>Microservicio de Procesos</h3>
+          <p>Plataforma basada en RabbitMQ y Redis para procesamiento de datos.</p>
         </div>
         <div class="proyecto">
-          <h3>Proyecto 3</h3>
-          <p>Dashboard de monitoreo en tiempo real usando WebSockets.</p>
+          <h3>Dashboard en Tiempo Real</h3>
+          <p>Aplicación visual con WebSockets para monitoreo.</p>
         </div>
       </div>
     </section>
-
-    <!-- CV SECTION -->
-    <section id="cv">
-      <h2>Currículum</h2>
-      <p><a href="cv.pdf" download style="color: var(--color-principal); text-decoration: underline;">Descargar CV (PDF)</a></p>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <p>📧 Email: <a href="mailto:victorvega@example.com" style="color: var(--color-acento);">victorvega@example.com</a></p>
-      <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/víctorvegaoteiza/" style="color: var(--color-acento);" target="_blank">linkedin.com/in/víctorvegaoteiza</a></p>
-      <p>💻 GitHub: <a href="#" style="color: var(--color-acento);">github.com/victorvega</a></p>
-    </section>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     © 2025 Víctor Vega Oteiza — Todos los derechos reservados
   </footer>
