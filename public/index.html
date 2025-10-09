@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio | Víctor Vega Oteiza</title>
+  <style>
+    /* ======== Estilos generales ======== */
+    :root {
+      --color-fondo: #0d1117;
+      --color-principal: #58a6ff;
+      --color-secundario: #161b22;
+      --color-texto: #c9d1d9;
+      --color-acento: #f78166;
+      --fuente: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--fuente);
+      background-color: var(--color-fondo);
+      color: var(--color-texto);
+      line-height: 1.6;
+    }
+
+    /* ======== Navbar ======== */
+    header {
+      background-color: var(--color-secundario);
+      padding: 1rem 2rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+      z-index: 1000;
+    }
+
+    header h1 {
+      color: var(--color-principal);
+      font-size: 1.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--color-texto);
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--color-principal);
+    }
+
+    /* ======== Secciones ======== */
+    section {
+      padding: 6rem 2rem 4rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      color: var(--color-principal);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--color-principal);
+      display: inline-block;
+    }
+
+    #inicio {
+      text-align: center;
+      padding-top: 8rem;
+    }
+
+    #inicio h2 {
+      border: none;
+      font-size: 2rem;
+    }
+
+    #inicio p {
+      color: var(--color-texto);
+      margin-top: 0.5rem;
+    }
+
+    /* ======== Proyectos ======== */
+    .proyectos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .proyecto {
+      background-color: var(--color-secundario);
+      border-radius: 10px;
+      padding: 1rem;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .proyecto:hover {
+      transform: translateY(-5px);
+      background-color: #1f242c;
+    }
+
+    .proyecto h3 {
+      color: var(--color-acento);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ======== Footer ======== */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: var(--color-secundario);
+      color: var(--color-texto);
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    /* ======== Responsivo ======== */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Víctor Vega Oteiza</h1>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio">
+      <h2>👋 Hola, soy Víctor Vega Oteiza</h2>
+      <p>Desarrollador Backend especializado en crear soluciones robustas y escalables.</p>
+    </section>
+
+    <section id="sobre-mi">
+      <h2>Sobre mí</h2>
+      <p>Soy un apasionado del desarrollo backend con experiencia en Python, Node.js y bases de datos SQL/NoSQL. Me gusta escribir código limpio, eficiente y bien documentado.</p>
+    </section>
+
+    <section id="proyectos">
+      <h2>Proyectos</h2>
+      <div class="proyectos-grid">
+        <div class="proyecto">
+          <h3>Proyecto 1</h3>
+          <p>API RESTful para gestión de tareas con autenticación JWT.</p>
+        </div>
+        <div class="proyecto">
+          <h3>Proyecto 2</h3>
+          <p>Microservicio para procesamiento de datos con RabbitMQ y Redis.</p>
+        </div>
+        <div class="proyecto">
+          <h3>Proyecto 3</h3>
+          <p>Dashboard de monitoreo en tiempo real usando WebSockets.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="cv">
+      <h2>Currículum Vitae</h2>
+      <p>Puedes descargar mi CV actualizado en formato PDF:</p>
+      <a href="cv.pdf" download style="color: var(--color-principal); text-decoration: underline;">Descargar CV</a>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p>📧 Email: <a href="mailto:victorvega@example.com" style="color: var(--color-acento);">victorvega@example.com</a></p>
+      <p>🔗 LinkedIn: <a href="#" style="color: var(--color-acento);">linkedin.com/in/victorvega</a></p>
+      <p>💻 GitHub: <a href="#" style="color: var(--color-acento);">github.com/victorvega</a></p>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Víctor Vega Oteiza — Todos los derechos reservados
+  </footer>
+</body>
+</html>
