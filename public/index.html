@@ -12,6 +12,7 @@
       --color-secundario: #161b22;
       --color-texto: #c9d1d9;
       --color-acento: #f78166;
+      --color-oscuro: #1f242c;
       --fuente: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
@@ -31,7 +32,7 @@
     /* ======== Navbar ======== */
     header {
       background-color: var(--color-secundario);
-      padding: 1rem 2rem;
+      padding: 1.5rem 2rem;
       position: fixed;
       top: 0;
       left: 0;
@@ -43,28 +44,35 @@
       z-index: 1000;
     }
 
-    header h1 {
-      color: var(--color-principal);
-      font-size: 1.5rem;
-    }
-
-    nav ul {
+    .header__nav ul {
       list-style: none;
       display: flex;
       gap: 1.5rem;
     }
 
-    nav a {
+    .header__nav a {
       text-decoration: none;
       color: var(--color-texto);
       transition: color 0.3s;
+      font-size: 1rem;
     }
 
-    nav a:hover {
+    .header__nav a:hover {
       color: var(--color-principal);
     }
 
+    .logo a {
+      text-decoration: none;
+      color: var(--color-principal);
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
     /* ======== Secciones ======== */
+    main {
+      margin-top: 5rem;
+    }
+
     section {
       padding: 6rem 2rem 4rem;
       max-width: 1000px;
@@ -78,44 +86,65 @@
       display: inline-block;
     }
 
-    #inicio {
+    /* ======== Home Section ======== */
+    .home {
       text-align: center;
-      padding-top: 8rem;
+      padding-top: 4rem;
     }
 
-    #inicio h2 {
-      border: none;
-      font-size: 2rem;
+    .home h1 {
+      color: var(--color-principal);
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
     }
 
-    #inicio p {
-      color: var(--color-texto);
-      margin-top: 0.5rem;
+    .home h2 {
+      font-size: 1.4rem;
+      color: var(--color-acento);
+      margin-bottom: 1rem;
     }
 
-    /* ======== Proyectos ======== */
+    .home p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    /* ======== Proyectos Section ======== */
     .proyectos-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
+      gap: 2rem;
       margin-top: 1.5rem;
     }
 
     .proyecto {
       background-color: var(--color-secundario);
       border-radius: 10px;
-      padding: 1rem;
+      padding: 1.5rem;
       transition: transform 0.3s, background 0.3s;
     }
 
     .proyecto:hover {
       transform: translateY(-5px);
-      background-color: #1f242c;
+      background-color: var(--color-oscuro);
     }
 
     .proyecto h3 {
       color: var(--color-acento);
       margin-bottom: 0.5rem;
+    }
+
+    /* ======== About Section ======== */
+    .about__description img {
+      width: 250px;
+      border-radius: 50%;
+      margin-bottom: 2rem;
+    }
+
+    .about__description {
+      text-align: center;
     }
 
     /* ======== Footer ======== */
@@ -125,22 +154,15 @@
       background-color: var(--color-secundario);
       color: var(--color-texto);
       font-size: 0.9rem;
-      margin-top: 2rem;
-    }
-
-    /* ======== Responsivo ======== */
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-      }
+      margin-top: 3rem;
     }
   </style>
 </head>
 <body>
+  <!-- HEADER -->
   <header>
-    <h1>Víctor Vega Oteiza</h1>
-    <nav>
+    <h1 class="logo"><a href="#">Víctor Vega Oteiza</a></h1>
+    <nav class="header__nav">
       <ul>
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#sobre-mi">Sobre mí</a></li>
@@ -152,46 +174,27 @@
   </header>
 
   <main>
-    <section id="inicio">
-      <h2>👋 Hola, soy Víctor Vega Oteiza</h2>
-      <p>Desarrollador Backend especializado en crear soluciones robustas, escalables y orientadas al rendimiento.</p>
+    <!-- HOME SECTION -->
+    <section class="home" id="inicio">
+      <h1>👋 Hola, soy Víctor Vega Oteiza</h1>
+      <h2>Desarrollador Backend & Bug Crusher</h2>
+      <p>Especializado en crear soluciones robustas, escalables y optimizadas para el rendimiento utilizando tecnologías modernas.</p>
     </section>
 
+    <!-- ABOUT SECTION -->
     <section id="sobre-mi">
       <h2>Sobre mí</h2>
-      <p>
-        Soy un apasionado del desarrollo de software con experiencia tanto en <strong>backend</strong> como en 
-        <strong>automatización de procesos (RPA)</strong>. A lo largo de mi carrera he trabajado en proyectos de diversa complejidad, 
-        desde la creación de soluciones empresariales basadas en automatización de procesos hasta el desarrollo de plataformas 
-        escalables y de alto rendimiento.
-      </p>
-      <p>
-        Actualmente formo parte de <strong>EPAM Systems (Optiva Media)</strong>, colaborando en el desarrollo backend del proyecto 
-        <strong>Movistar Plus+</strong> para Telefónica, donde diseño y desarrollo soluciones distribuidas con 
-        <strong>TypeScript</strong>, <strong>Node.js</strong> y <strong>AWS</strong>. Aplico principios de 
-        <strong>DDD</strong>, <strong>TDD</strong> y metodologías de <strong>CI/CD</strong> para construir sistemas robustos y mantenibles.
-      </p>
-      <p>
-        Previamente trabajé en <strong>Satec</strong>, donde adquirí experiencia en el desarrollo de soluciones de 
-        <strong>automatización robótica de procesos (RPA)</strong> utilizando herramientas como <strong>UiPath</strong> y <strong>Selenium</strong>, 
-        ayudando a optimizar procesos empresariales mediante la automatización.
-      </p>
-      <p>
-        Me considero una persona proactiva, con gran capacidad de aprendizaje y adaptación, siempre en búsqueda de la mejora continua 
-        y del crecimiento profesional. Me motiva construir soluciones innovadoras que impulsen la eficiencia, la productividad 
-        y aporten valor real a cada proyecto.
-      </p>
-
-      <h3 style="color: var(--color-principal); margin-top: 1.5rem;">🧠 Tecnologías y habilidades</h3>
-      <ul style="margin-left: 1.5rem;">
-        <li>TypeScript · Node.js · Principios SOLID</li>
-        <li>AWS (EC2, S3, Lambda, CloudFormation)</li>
-        <li>Arquitectura backend · APIs RESTful</li>
-        <li>CI/CD (GitLab CI) · TDD · DDD</li>
-        <li>UiPath · Selenium</li>
-      </ul>
+      <div class="about__description">
+        <img src="avatar.jpg" alt="Foto de Víctor Vega Oteiza" />
+        <p>
+          Soy un apasionado desarrollador backend con experiencia en <strong>automatización RPA</strong> y <strong>desarrollo de software</strong>.
+          Actualmente colaboro en el proyecto Movistar Plus+ en Telefónica, creando soluciones distribuidas con tecnología moderna como
+          <strong>Node.js</strong>, <strong>TypeScript</strong>, y <strong>AWS</strong>.
+        </p>
+      </div>
     </section>
 
+    <!-- PROJECTS SECTION -->
     <section id="proyectos">
       <h2>Proyectos</h2>
       <div class="proyectos-grid">
@@ -210,12 +213,13 @@
       </div>
     </section>
 
+    <!-- CV SECTION -->
     <section id="cv">
-      <h2>Currículum Vitae</h2>
-      <p>Puedes descargar mi CV actualizado en formato PDF:</p>
-      <a href="cv.pdf" download style="color: var(--color-principal); text-decoration: underline;">Descargar CV</a>
+      <h2>Currículum</h2>
+      <p><a href="cv.pdf" download style="color: var(--color-principal); text-decoration: underline;">Descargar CV (PDF)</a></p>
     </section>
 
+    <!-- CONTACT SECTION -->
     <section id="contacto">
       <h2>Contacto</h2>
       <p>📧 Email: <a href="mailto:victorvega@example.com" style="color: var(--color-acento);">victorvega@example.com</a></p>
