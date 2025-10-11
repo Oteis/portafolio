@@ -1,124 +1,190 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portafolio | Víctor Vega Oteiza</title>
   <style>
     /* ======== Variables CSS ======== */
     :root {
-      --primary: #1a1a1a; /* fondo principal gris oscuro */
-      --secondary: #ffffff; /* texto blanco */
-      --light-bg: rgba(255, 255, 255, 0.08); /* gris claro translúcido */
-      --accent: #ffeb3b; /* amarillo brillante y visible */
-      --gray: #b0b0b0; /* gris medio */
-      --dark-gray: #2e2e2e; /* gris oscuro para secciones */
+      --primary: #1a1a1a;
+      --secondary: #ffffff;
+      --light-bg: rgba(255, 255, 255, 0.05);
+      --accent: #ffeb3b;
+      --gray: #b0b0b0;
+      --dark-gray: #2a2a2a;
+      --radius: 12px;
+      --transition: 0.3s ease;
+      --font-main: 'Inter', system-ui, sans-serif;
       --text-color: var(--secondary);
       --background-color: var(--primary);
-
     }
+
     [data-theme="light"] {
-      --primary: #f9f9f9; /* fondo ligeramente gris para evitar blanco puro y reducir brillo */
-      --secondary: #1a1a1a; /* texto oscuro para buen contraste */
-      --light-bg: #ffffff; /* fondos o tarjetas más claros */
-      --accent: #ffd600; /* amarillo cálido y vibrante para consistencia con el tema oscuro */
-      --gray: #666666; /* texto secundario */
-      --dark-gray: #d9d9d9; /* bordes y divisores suaves */
+      --primary: #f9f9f9;
+      --secondary: #1a1a1a;
+      --light-bg: #ffffff;
+      --accent: #ffd600;
+      --gray: #666666;
+      --dark-gray: #eaeaea;
       --text-color: var(--secondary);
       --background-color: var(--primary);
     }
 
-    /* ======== Estilos generales ======== */
+    /* ======== Estilos globales ======== */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      scroll-behavior: smooth;
     }
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: var(--font-main);
       background: var(--background-color);
       color: var(--text-color);
-      line-height: 1.6;
-      transition: all 0.3s ease;
+      line-height: 1.7;
+      transition: background var(--transition), color var(--transition);
+    }
+    img {
+      max-width: 100%;
+      display: block;
     }
     h1, h2, h3 {
-      margin-bottom: 1rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.5rem;
     }
-    h1, h2 {
+    h1 {
+      font-size: 2.5rem;
+    }
+    h2 {
+      font-size: 1.75rem;
       color: var(--accent);
       text-align: center;
     }
-    ul {
-      list-style: none;
-      margin: 1rem 0;
-      padding-left: 0;
+    p, li {
+      font-size: 1rem;
+      color: var(--gray);
     }
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
+
+    /* ======== Encabezado ======== */
     header {
-      background: var(--dark-gray);
-      padding: 2rem 1.5rem;
       text-align: center;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+      padding: 4rem 1rem 3rem;
+      background: var(--dark-gray);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     }
+    header h1 {
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+    header h2 {
+      color: var(--accent);
+      font-weight: 400;
+      font-size: 1.2rem;
+    }
+
+    /* ======== Controles ======== */
     .toggle-buttons {
-      position: absolute;
-      top: 20px;
-      right: 20px;
+      position: fixed;
+      top: 1.2rem;
+      right: 1.2rem;
       display: flex;
-      gap: 1rem;
+      gap: 0.6rem;
+      z-index: 10;
     }
     .toggle-buttons button {
       background: var(--light-bg);
       color: var(--text-color);
       border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
+      padding: 0.5rem 0.9rem;
+      border-radius: var(--radius);
       cursor: pointer;
-      transition: background 0.3s;
+      font-size: 0.9rem;
+      transition: background var(--transition), color var(--transition), transform 0.2s;
     }
     .toggle-buttons button:hover {
       background: var(--accent);
       color: var(--primary);
+      transform: scale(1.05);
     }
+
+    /* ======== Secciones ======== */
     main {
-      max-width: 1200px;
-      margin: auto;
-      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1rem;
     }
     section {
-      margin-bottom: 4rem;
-      padding: 2rem;
+      margin-bottom: 3.5rem;
       background: var(--light-bg);
-      border-radius: 8px;
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+    section:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+    }
+
+    /* ======== Grid ======== */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
     }
+
     .card {
       background: var(--dark-gray);
       padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+      border-radius: var(--radius);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+      transition: transform var(--transition), box-shadow var(--transition);
     }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+    .card h3 {
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+    .card a {
+      display: inline-block;
+      margin-top: 1rem;
+      font-weight: 500;
+      color: var(--accent);
+      transition: opacity 0.2s;
+    }
+    .card a:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    /* ======== Footer ======== */
     footer {
       text-align: center;
       padding: 2rem;
+      font-size: 0.9rem;
       color: var(--gray);
       background: var(--dark-gray);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* ======== Animaciones ======== */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    section, .card {
+      animation: fadeIn 0.6s ease both;
     }
   </style>
 </head>
 <body>
-  <!-- Botones de cambio de tema e idioma -->
+  <!-- Botones de control -->
   <div class="toggle-buttons">
     <button id="theme-toggle">Cambiar tema</button>
     <button id="language-toggle">English</button>
@@ -127,33 +193,28 @@
   <!-- HEADER -->
   <header>
     <h1 data-en="Victor Vega Oteiza" data-es="Víctor Vega Oteiza">Víctor Vega Oteiza</h1>
-    <h2 data-en="Backend Developer specializing in TypeScript, Node.js, and AWS" data-es="Desarrollador Backend Especializado en TypeScript, Node.js y AWS">
-      Desarrollador Backend Especializado en TypeScript, Node.js y AWS
+    <h2 data-en="Backend Developer specializing in TypeScript, Node.js, and AWS"
+        data-es="Desarrollador Backend Especializado en TypeScript, Node.js y AWS">
+        Desarrollador Backend Especializado en TypeScript, Node.js y AWS
     </h2>
   </header>
 
   <!-- MAIN -->
   <main>
-    <!-- EXPERIENCIA LABORAL -->
+    <!-- EXPERIENCIA -->
     <section id="experience">
       <h2 data-en="Work Experience" data-es="Experiencia laboral">Experiencia laboral</h2>
       <div class="grid">
         <div class="card">
-          <h3 data-en="Junior Software Engineer" data-es="Ingeniero de Software Junior">Ingeniero de Software Junior</h3>
+          <h3 data-en="Junior Software Engineer" data-es="Ingeniero de Software Junior">
+            Ingeniero de Software Junior
+          </h3>
           <p><strong>Optiva Media - EPAM</strong> (May 2024 - Presente)</p>
           <ul>
-            <li data-en="Develop robust and scalable backend systems with TypeScript and Node.js." data-es="Desarrollar sistemas backend robustos y escalables con TypeScript y Node.js.">
-              Desarrollar sistemas backend robustos y escalables con TypeScript y Node.js.
-            </li>
-            <li data-en="Implement automated testing (TDD) to maintain high code quality." data-es="Implementar pruebas automáticas (TDD) para mantener altos estándares de calidad de código.">
-              Implementar pruebas automáticas (TDD) para mantener altos estándares de calidad de código.
-            </li>
-            <li data-en="Manage cloud infrastructure in AWS using CloudFormation." data-es="Gestionar la infraestructura en la nube en AWS utilizando CloudFormation.">
-              Gestionar la infraestructura en la nube en AWS utilizando CloudFormation.
-            </li>
-            <li data-en="Build CI/CD pipelines for streamlined system deployments." data-es="Construir pipelines de CI/CD para despliegues automatizados.">
-              Construir pipelines de CI/CD para despliegues automatizados.
-            </li>
+            <li>Desarrollar sistemas backend escalables con TypeScript y Node.js.</li>
+            <li>Implementar pruebas automáticas (TDD) para calidad de código.</li>
+            <li>Gestionar infraestructura en AWS mediante CloudFormation.</li>
+            <li>Construir pipelines CI/CD para despliegues automatizados.</li>
           </ul>
         </div>
 
@@ -161,71 +222,70 @@
           <h3 data-en="RPA Developer" data-es="Desarrollador RPA">Desarrollador RPA</h3>
           <p><strong>Satec</strong> (Nov 2021 - Jun 2023)</p>
           <ul>
-            <li data-en="Automated business processes using UiPath to reduce manual work." data-es="Automatización de procesos de negocio usando UiPath para reducir el trabajo manual.">
-              Automatización de procesos de negocio usando UiPath para reducir el trabajo manual.
-            </li>
-            <li data-en="Improved workflow efficiency and minimized errors in repetitive tasks." data-es="Mejorar la eficiencia del flujo de trabajo y minimizar errores en tareas repetitivas.">
-              Mejorar la eficiencia del flujo de trabajo y minimizar errores en tareas repetitivas.
-            </li>
+            <li>Automatización de procesos de negocio usando UiPath.</li>
+            <li>Optimización de flujos y reducción de errores manuales.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- PROYECTOS PRINCIPALES -->
+    <!-- PROYECTOS -->
     <section id="projects">
       <h2 data-en="Highlighted Projects" data-es="Proyectos destacados">Proyectos destacados</h2>
-      <div class="grid" id="projects-container">
-        <!-- Proyectos de GitHub se mostrarán aquí dinámicamente -->
-      </div>
+      <div class="grid" id="projects-container"></div>
     </section>
   </main>
 
   <!-- FOOTER -->
   <footer>
-    © 2025 Víctor Vega Oteiza - Todos los derechos reservados.
+    © 2025 Víctor Vega Oteiza — Todos los derechos reservados.
   </footer>
 
+  <!-- SCRIPT -->
   <script>
     const GITHUB_USERNAME = "Oteis";
 
     // Cambio de tema
-    const themeToggle = document.getElementById('theme-toggle');
-    themeToggle.addEventListener('click', () => {
-        document.body.dataset.theme = document.body.dataset.theme === 'light' ? 'dark' : 'light';
+    const themeToggle = document.getElementById("theme-toggle");
+    themeToggle.addEventListener("click", () => {
+      const html = document.documentElement;
+      html.dataset.theme = html.dataset.theme === "light" ? "dark" : "light";
     });
 
     // Cambio de idioma
-    const languageToggle = document.getElementById('language-toggle');
-    languageToggle.addEventListener('click', () => {
-        const currentLang = languageToggle.textContent === 'English' ? 'es' : 'en';
-        languageToggle.textContent = currentLang === 'en' ? 'Español' : 'English';
-
-        document.querySelectorAll('[data-en]').forEach(el => {
-            el.textContent = el.getAttribute(`data-${currentLang}`);
-        });
+    const languageToggle = document.getElementById("language-toggle");
+    languageToggle.addEventListener("click", () => {
+      const lang = languageToggle.textContent === "English" ? "en" : "es";
+      languageToggle.textContent = lang === "en" ? "Español" : "English";
+      document.querySelectorAll("[data-en]").forEach(el => {
+        el.textContent = el.getAttribute(`data-${lang}`);
+      });
     });
 
-    // Cargar proyectos de GitHub dinámicamente
+    // Cargar proyectos de GitHub
     async function fetchGitHubProjects() {
-        const container = document.getElementById('projects-container');
-        try {
-            const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`);
-            const repos = await response.json();
-            repos.forEach(repo => {
-                const projectCard = document.createElement('div');
-                projectCard.classList.add('card');
-                projectCard.innerHTML = `
-                    <h3>${repo.name}</h3>
-                    <p>${repo.description || "No description available."}</p>
-                    <a href="${repo.html_url}" target="_blank">Ver en GitHub</a>
-                `;
-                container.appendChild(projectCard);
-            });
-        } catch (error) {
-            console.error("Error al obtener los proyectos de GitHub:", error);
-            container.innerHTML = "<p>Error al cargar los proyectos.</p>";
-        }
+      const container = document.getElementById("projects-container");
+      try {
+        const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`);
+        const repos = await response.json();
+        const topRepos = repos
+          .filter(repo => !repo.fork)
+          .sort((a,b) => b.stargazers_count - a.stargazers_count)
+          .slice(0, 6);
+
+        topRepos.forEach(repo => {
+          const projectCard = document.createElement("div");
+          projectCard.classList.add("card");
+          projectCard.innerHTML = `
+            <h3>${repo.name}</h3>
+            <p>${repo.description || "Sin descripción disponible."}</p>
+            <a href="${repo.html_url}" target="_blank">Ver en GitHub →</a>
+          `;
+          container.appendChild(projectCard);
+        });
+      } catch (error) {
+        container.innerHTML = "<p>Error al cargar los proyectos.</p>";
+      }
     }
     fetchGitHubProjects();
   </script>
