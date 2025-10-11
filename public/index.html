@@ -7,22 +7,23 @@
   <style>
     /* ======== Variables CSS ======== */
     :root {
-      --primary: #0a192f;
-      --secondary: #ccd6f6;
-      --light-bg: rgba(204, 214, 246, 0.1);
-      --accent: #64ffda;
-      --gray: #8892b0;
-      --dark-gray: #233554;
+      --primary: #1a1a1a; /* fondo principal gris oscuro */
+      --secondary: #ffffff; /* texto blanco */
+      --light-bg: rgba(255, 255, 255, 0.08); /* gris claro translúcido */
+      --accent: #ffeb3b; /* amarillo brillante y visible */
+      --gray: #b0b0b0; /* gris medio */
+      --dark-gray: #2e2e2e; /* gris oscuro para secciones */
       --text-color: var(--secondary);
       --background-color: var(--primary);
+
     }
     [data-theme="light"] {
-      --primary: #ffffff;
-      --secondary: #333333;
-      --light-bg: #f0f0f0;
-      --accent: #007acc;
-      --gray: #555555;
-      --dark-gray: #e6e6e6;
+      --primary: #f9f9f9; /* fondo ligeramente gris para evitar blanco puro y reducir brillo */
+      --secondary: #1a1a1a; /* texto oscuro para buen contraste */
+      --light-bg: #ffffff; /* fondos o tarjetas más claros */
+      --accent: #ffd600; /* amarillo cálido y vibrante para consistencia con el tema oscuro */
+      --gray: #666666; /* texto secundario */
+      --dark-gray: #d9d9d9; /* bordes y divisores suaves */
       --text-color: var(--secondary);
       --background-color: var(--primary);
     }
